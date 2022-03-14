@@ -1,0 +1,44 @@
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.home {
+  height: 100%;
+  padding: 0px 20px;
+  .banner {
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+    background-image: url('../../assets//tu1.jpg');
+    background-size: 100% 300px;
+    background-position: center;
+  }
+  .middleTitle {
+    margin-top: 10px;
+    padding-bottom: 6px;
+    font-size: 14px;
+    height: 40px;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .refresh {
+      margin-right: 15px;
+      width: 30px;
+      height: 30px;
+      background-size: 30px 30px;
+      background-image: url('../../assets/刷新.png');
+    }
+    .route {
+      animation: spin 1s infinite linear;
+    }
+  }
+  .homeBottom {
+    height: calc(100% - 340px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+}
+
