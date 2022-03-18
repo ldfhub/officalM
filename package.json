@@ -23,6 +23,7 @@
     "@ant-design/pro-layout": "^6.5.0",
     "@types/js-cookie": "^3.0.1",
     "@umijs/plugin-sass": "^1.1.1",
+    "html2canvas": "^1.4.1",
     "js-cookie": "^3.0.1",
     "lib-flexible": "^0.3.2",
     "node-sass": "^7.0.1",

@@ -2,7 +2,7 @@ import { defineConfig } from "umi";
 
 export default defineConfig({
   define: {
-    'process.env.ENV': 'dev',
+    // 'process.env.ENV': 'dev',
     'process.env.apiUrl': 'http://localhost:3301'
   },
   proxy: {

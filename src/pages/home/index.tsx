@@ -2,6 +2,7 @@ import React, { FC, useEffect, useState, useRef } from 'react';
 import { IHomeProps } from './index.interface';
 import styles from './index.less';
 import { useSelector, useDispatch } from 'react-redux';
+import { downloadImg } from '@/utils/utils';
 import CustomTable from './component/customTable';
 import { RootState } from '../../models/storeState';
 
@@ -35,6 +36,9 @@ const Home:FC<IHomeProps> = () => {
   }
   // 保存图片
   const saveImage = () => {
+    const dom = document.getElementById('domNode');
+        const fileName = new Date().getTime() + '文案.png';
+        downloadImg(dom, fileName, 2);
     console.log('00000')
   }
   return (
