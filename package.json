@@ -1,8 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "start": "PORT=3301 umi dev",
-    "build": "umi build",
+    "start": "cross-env UMI_ENV=dev PORT=3301 umi dev",
+    "build": "cross-env UMI_ENV=prod umi build",
     "postinstall": "umi generate tmp",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
     "test": "umi-test",

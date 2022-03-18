@@ -26,8 +26,9 @@
    504: '网关超时。',
  };
 
-//  const baseUrl = 'http://www.violet.pet:3300'
-const baseUrl = 'http://localhost:3001'
+//  const baseUrl = 'http://violet.pet:3301'
+// const baseUrl = 'http://localhost:3001'
+console.log(process.env.apiUrl);
 
  /**
   * 异常处理程序
@@ -63,7 +64,7 @@ const baseUrl = 'http://localhost:3001'
    errorHandler,
    // 默认错误处理
    credentials: 'include', // 默认请求是否带上cookie
-  //  prefix: baseUrl
+   prefix: process.env.apiUrl
    // params: {
    //   _r: Math.random() // 添加参数，防止缓存
    // }
