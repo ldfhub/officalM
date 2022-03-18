@@ -37,9 +37,9 @@ const Home:FC<IHomeProps> = () => {
   // 保存图片
   const saveImage = () => {
     const dom = document.getElementById('domNode');
-        const fileName = new Date().getTime() + '文案.png';
-        downloadImg(dom, fileName, 2);
-    console.log('00000')
+    const fileName = new Date().getTime() + '文案.png';
+    downloadImg(dom, fileName, 2);
+    console.log('222222222')
   }
   return (
     <div className={styles.home} id='domNode'>
