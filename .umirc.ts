@@ -8,6 +8,9 @@ export default defineConfig({
   routes: [
     { path: '/', component: '@/pages/home/index' },
   ],
+  alias: {
+    assets: '/src/assets'
+  },
   fastRefresh: {},
   extraPostCSSPlugins: [
     px2rem({
