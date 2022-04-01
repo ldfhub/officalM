@@ -55,7 +55,10 @@ const CustomTable: FC<IProps> = (props):ReactElement => {
           </div>
         </div>
         <span className={styles.textContent}>
-          {info?.content}<i onClick={clickRoute} style={{ fontStyle: 'normal', color: '#666' }}>#{title()}</i>
+          <div className={styles.quotationMark}>“</div>
+          {info?.content}
+          <div className={styles.quotationMarkRight}>”</div>
+          {/* <i onClick={clickRoute} style={{ fontStyle: 'normal', color: '#666' }}>#{title()}</i> */}
         </span>
       </div>
     </div>
