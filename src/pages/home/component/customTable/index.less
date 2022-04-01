@@ -5,23 +5,15 @@
 .customTable {
   display: flex;
   width: 100%;
-  // .thumbnail {
-  //   width: 24vw;
-  //   height: 24vw;
-  //   // background-color: #ccc;
-  //   background-image: url('../../../../assets/7.jpg');
-  //   background-position: left center;
-  //   border-radius: 10px;
-  // }
   .contentInfo {
+    padding: 30px 0px 0px 30px;
     font-size: 14px;
-    height: 34vw;
-    width: calc(100vw - 20px);
-    // background-color: #ccc;
-    background-image: url('../../../../assets/7.jpg');
+    height: 420px;
+    width: 100%;
+    box-shadow: 0px 15px 22px 0px rgba(205, 205, 205, 0.61);
+    border-radius: 10px;
     background-size: 100% 100%;
     background-position: center center;
-    border-radius: 5px;
     .textContent {
       width: 100%;
       height: 29vw;
@@ -32,33 +24,44 @@
       overflow: hidden;
       text-overflow:ellipsis;
     }
-    // .btnInfo {
-    //   display: flex;
-    //   // float: right;
-    //   height: 5vw;
-    //   align-items: center;
-    //   justify-content: space-between;
-    //   width: 100%;
-    //   .btnInfo_l {
-    //     display: flex;
-    //     align-items: center;
-    //   }
-    //   .refresh {
-    //     margin-right: 15px;
-    //     width: 30px;
-    //     height: 30px;
-    //     background-size: 30px 30px;
-    //     background-image: url('../../../../assets/刷新.png');
-    //   }
-    //   .route {
-    //     animation: spin 1s infinite linear;
-    //   }
-    //   // background-color: #000;
-    //   .btnInfo_r {
-    //     float: right;
-    //     display: flex;
-    //     align-items: center;
-    //   }
-    // }
+    .btnInfo {
+      width: 100%;
+      display: flex;
+      height: 60px;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      .titleNameType {
+        text-align: center;
+        line-height: 60px;
+        width: 170px;
+        height: 60px;
+        background: #FFFFFF;
+        border-radius: 0px 27px 27px 27px;
+        font-size: 12px;
+        font-family: PingFangSC-Medium, PingFang SC;
+        // font-weight: 500;
+        color: #000000;
+      }
+      .btnInfo_l {
+        display: flex;
+        align-items: center;
+      }
+      .refresh {
+        margin-right: 15px;
+        width: 30px;
+        height: 30px;
+        background-size: 30px 30px;
+        background-image: url('../../../../assets/刷新.png');
+      }
+      .route {
+        animation: spin 1s infinite linear;
+      }
+      .btnInfo_r {
+        float: right;
+        display: flex;
+        align-items: center;
+      }
+    }
   }
 }

@@ -67,8 +67,8 @@ const Home:FC<IHomeProps> = () => {
       <div className={styles.middleTitle}>
         <span>今日分享</span>
         <div style={{ display: 'flex' }}>
-          {/* <div onClick={saveImage}>一键保存图片</div>
-          <div className={isRoute ? styles.route + ' ' + styles.refresh : styles.refresh} onClick={clickRoute}></div> */}
+          {/* <div onClick={saveImage}>一键保存图片</div> */}
+          <button onClick={saveImage}>保存图片</button>
         </div>
       </div>
       <div className={styles.homeBottom}>

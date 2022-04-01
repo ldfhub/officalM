@@ -41,27 +41,24 @@ const CustomTable: FC<IProps> = (props):ReactElement => {
         return ''
     }
   }
+  const titleName = title();
+  // 导入图片
+  const imgUrl = require('../../../../assets/'+ titleName + '.png');
   return (
     <div className={styles.customTable}>
-      {/* <div className={styles.thumbnail}></div> */}
-      <div className={styles.contentInfo}>
+      <div className={styles.contentInfo} style={{backgroundImage: `url(${imgUrl})`}}>
+        <div className={styles.btnInfo}>
+          <div className={styles.titleNameType}>{`# ${titleName === '网易云热评' ? '热评' : titleName} #`}</div>
+          <div className={styles.btnInfo_r}>
+            <div className={isRoute ? styles.route + ' ' + styles.refresh : styles.refresh} onClick={clickRoute}></div>
+            {/* <span className='mgl10 mgr10'>详情</span> */}
+          </div>
+        </div>
         <span className={styles.textContent}>
           {info?.content}<i onClick={clickRoute} style={{ fontStyle: 'normal', color: '#666' }}>#{title()}</i>
         </span>
-        {/* <div className={styles.btnInfo}>
-          <div className={styles.btnInfo_l}>
-            <div className='mgl10 at-icon at-icon-heart'>({Number(info.easyLike)})</div>
-            <div className='mgl10 at-icon at-icon-star'>({Number(info.collect)})</div>
-            <span className='mgl10' onClick={copyText(info.content)}>复制文字</span>
-          </div>
-          <div className={styles.btnInfo_r}>
-            <div className={isRoute ? styles.route + ' ' + styles.refresh : styles.refresh} onClick={clickRoute}></div>
-            <span className='mgl10 mgr10'>详情</span>
-          </div>
-        </div> */}
       </div>
     </div>
   )
 }
 export default CustomTable
-
