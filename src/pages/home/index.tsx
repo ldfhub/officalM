@@ -1,12 +1,12 @@
 import React, { FC, useEffect, useState, useRef } from 'react';
-import { IHomeProps } from './index.interface';
+import { IHomeProps, IList } from './index.interface';
 import styles from './index.less';
 import { Button, Space, Swiper, Toast } from 'antd-mobile'
+import dayjs from 'dayjs'
 // import { bannerData } from '@/utils/data';
 import { useSelector, useDispatch } from 'react-redux';
 import { downloadImg } from '@/utils/utils';
 import CustomTable from './component/customTable';
-import img from '../../assets/情话.png';
 import { RootState } from '../../models/storeState';
 
 const Home:FC<IHomeProps> = () => {
@@ -18,6 +18,18 @@ const Home:FC<IHomeProps> = () => {
     return state.home
   })
   const SwiperItem = Swiper.Item;
+  const weekNum = dayjs().day();
+  const newList = list.filter((item:IList, index) => {
+    if(weekNum === 1 || weekNum === 2) {
+      return item.type === 'WISDOM'
+    } else if (weekNum === 3 || weekNum === 4) {
+      return item.type === 'HOTWORDS'
+    } else if (weekNum === 5 || weekNum === 6) {
+      return item.type === 'LOVEWORDS'
+    } else if (weekNum === 7) {
+      return item.type === 'JOKE'
+    }
+  })
 
   // 轮播
   // const swiperItems = bannerData.map((item, index) => {
@@ -54,7 +66,6 @@ const Home:FC<IHomeProps> = () => {
     const dom = document.getElementById('domNode');
     const fileName = new Date().getTime() + '文案.png';
     downloadImg(dom, fileName, 2);
-    console.log('222222222')
   }
   return (
     <div className={styles.home} id='domNode'>
@@ -63,12 +74,17 @@ const Home:FC<IHomeProps> = () => {
         {/* <Swiper>
           {swiperItems}
         </Swiper> */}
+        <div className={styles.bannerContent}>
+          <div className={styles.quotationMark}>“</div>
+            白天积极向上，<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;夜晚灵魂安放
+          <div className={styles.quotationMarkRight}>”</div>
+        </div>
       </div>
       <div className={styles.middleTitle}>
         <span>今日分享</span>
-        <div onClick={saveImage} style={{ cursor: 'pointer' }}>
+        <button className={styles.btn} onClick={saveImage} style={{ cursor: 'pointer' }}>
           保存图片
-        </div>
+        </button>
       </div>
       <div className={styles.homeBottom}>
         {

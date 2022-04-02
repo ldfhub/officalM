@@ -4,18 +4,36 @@
 }
 .home {
   height: 100%;
-  padding: 10px 40px 0px;
+  padding: 10px 30px 0px;
+  .engTitle {
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
   .banner {
     width: 100%;
-    height: 280px;
-    background: #F7F7F7;
+    height: 220px;
+    // background: #F7F7F7;
+    background-image: url('../../assets//banner.jpg');
+    background-size: 100% 100%;
     box-shadow: 0px 15px 22px 0px rgba(205, 205, 205, 0.61);
-    border-radius: 10px;
+    border-radius: 20px;
+    position: relative;
+    .bannerContent {
+      width: calc(100% - 30px);
+      left: 15px;
+      bottom: 10px;
+      font-size: 20px;
+      color: #fff;
+      font-weight: 500;
+      position: absolute;
+      .quotationMarkRight {
+        text-align: right;
+      }
+    }
   }
   .middleTitle {
-    margin-top: 10px;
-    padding-bottom: 6px;
-    font-size: 18px;
+    font-size: 30px;
     font-family: PingFangSC-Medium, PingFang SC;
     font-weight: 500;
     color: #10101E;
@@ -32,21 +50,22 @@
       background-image: url('../../assets/刷新.png');
     }
     button {
-      font-size: 10px;
+      font-size: 14px;
       font-family: PingFangSC-Regular, PingFang SC;
       font-weight: 400;
       color: #10101E;
-      width: 250px;
-      height: 52px;
+      width: 140px;
+      height: 40px;
       border-radius: 44px;
       border: 3px solid #10101E;
     }
   }
   .homeBottom {
-    height: calc(100% - 340px);
+    // height: calc(100% - 400px);
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding-bottom: 20px;
   }
 }
 

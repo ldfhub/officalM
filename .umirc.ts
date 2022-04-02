@@ -13,11 +13,11 @@ export default defineConfig({
   },
   fastRefresh: {},
   extraPostCSSPlugins: [
-    px2rem({
-      rootValue: 50, //开启hd后需要换算：rootValue=designWidth*100/750,此处设计稿为1920，所以1920*100/750=256
-      propBlackList: ['border','border-top','border-left','border-right','border-bottom','border-radius','font-size'],//这些属性不需要转换
-      selectorBlackList: ['t_npx']//以包含t_npx的class不需要转换
-    })
+    // px2rem({
+    //   rootValue: 100, //开启hd后需要换算：rootValue=designWidth*100/750,此处设计稿为1920，所以1920*100/750=256
+    //   propBlackList: ['border','border-top','border-left','border-right','border-bottom','border-radius','font-size'],//这些属性不需要转换
+    //   selectorBlackList: ['t_npx']//以包含t_npx的class不需要转换
+    // })
   ],
   dva: {},
   antd: {},
