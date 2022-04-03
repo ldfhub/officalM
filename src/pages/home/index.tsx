@@ -11,6 +11,7 @@ import { RootState } from '../../models/storeState';
 
 const Home:FC<IHomeProps> = () => {
   const [isRoute, setIsRoute] = useState(false);
+  const [isShow, setIsshow] = useState(true);
   const domNode = useRef();
   const timeId = useRef();
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ const Home:FC<IHomeProps> = () => {
       return item.type === 'HOTWORDS'
     } else if (weekNum === 5 || weekNum === 6) {
       return item.type === 'LOVEWORDS'
-    } else if (weekNum === 7) {
+    } else if (weekNum === 0) {
       return item.type === 'JOKE'
     }
   })
@@ -52,20 +53,22 @@ const Home:FC<IHomeProps> = () => {
     })
   }
 
-  // 点击刷新
-  const clickRoute = () => {
-    // clearTimeout(timeId.current);
-    setIsRoute(true)
-    timeId.current = setTimeout(() => {
-      queryAllHomelist();
-      setIsRoute(false);
-    }, 1000)
-  }
+  // // 点击刷新
+  // const clickRoute = () => {
+  //   // clearTimeout(timeId.current);
+  //   setIsRoute(true)
+  //   timeId.current = setTimeout(() => {
+  //     queryAllHomelist();
+  //     setIsRoute(false);
+  //   }, 1000)
+  // }
   // 保存图片
-  const saveImage = () => {
+  const saveImage = async() => {
+    await setIsshow(false)
     const dom = document.getElementById('domNode');
     const fileName = new Date().getTime() + '文案.png';
     downloadImg(dom, fileName, 2);
+    await setIsshow(true)
   }
   return (
     <div className={styles.home} id='domNode'>
@@ -82,15 +85,19 @@ const Home:FC<IHomeProps> = () => {
       </div>
       <div className={styles.middleTitle}>
         <span>今日分享</span>
-        <button className={styles.btn} onClick={saveImage} style={{ cursor: 'pointer' }}>
-          保存图片
-        </button>
+        {
+          isShow ?
+            <button className={styles.btn} onClick={saveImage} style={{ cursor: 'pointer' }}>
+              保存图片
+            </button>
+          : <span style={{ color: '#666', fontSize: '20px'}}>周日</span>
+        }
       </div>
       <div className={styles.homeBottom}>
         {
-          list.map((item:any, index:number) => {
+          newList.map((item:any, index:number) => {
             return (
-              <CustomTable key={index} info={item} />
+              <CustomTable isShow={isShow} key={index} info={item} />
             )
           })
         }
