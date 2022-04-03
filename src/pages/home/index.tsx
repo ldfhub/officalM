@@ -78,9 +78,9 @@ const Home:FC<IHomeProps> = () => {
           {swiperItems}
         </Swiper> */}
         <div className={styles.bannerContent}>
-          <div className={styles.quotationMark}>“</div>
+          {/* <div className={styles.quotationMark}>“</div> */}
             白天积极向上<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;夜晚灵魂安放
-          <div className={styles.quotationMarkRight}>”</div>
+          {/* <div className={styles.quotationMarkRight}>”</div> */}
         </div>
       </div>
       <div className={styles.middleTitle}>
