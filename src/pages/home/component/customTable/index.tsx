@@ -4,7 +4,7 @@ import styles from './index.less';
 import { useDispatch, useSelector } from 'react-redux';
 
 interface IProps {
-  info: {content: string; id: string; type: string; collect: string; easyLike:string;}
+  info: {content: string; id: string; type: string; collect: string; easyLike:string; en: string;}
   isShow: boolean;
 }
 
@@ -69,6 +69,10 @@ const CustomTable: FC<IProps> = (props):ReactElement => {
         <div className={styles.textContent} style={{ fontSize: contentStyle.fontSize + 'px', lineHeight: contentStyle.lineHeight + 'px'}}>
           <div className={styles.quotationMark}>“</div>
           {info?.content}
+          {
+            info.type === 'WISDOM' &&
+            <div>{info.en}</div>
+          }
           <div className={styles.quotationMarkRight}>”</div>
           {/* <i onClick={clickRoute} style={{ fontStyle: 'normal', color: '#666' }}>#{title()}</i> */}
         </div>

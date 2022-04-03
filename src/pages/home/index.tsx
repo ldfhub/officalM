@@ -3,9 +3,8 @@ import { IHomeProps, IList } from './index.interface';
 import styles from './index.less';
 import { Button, Space, Swiper, Toast } from 'antd-mobile'
 import dayjs from 'dayjs'
-// import { bannerData } from '@/utils/data';
 import { useSelector, useDispatch } from 'react-redux';
-import { downloadImg } from '@/utils/utils';
+import { downloadImg, toChinesNum } from '@/utils/utils';
 import CustomTable from './component/customTable';
 import { RootState } from '../../models/storeState';
 
@@ -32,6 +31,7 @@ const Home:FC<IHomeProps> = () => {
     }
   })
 
+  const chineseNumber = toChinesNum(weekNum);
   // 轮播
   // const swiperItems = bannerData.map((item, index) => {
   //   return (
@@ -79,7 +79,7 @@ const Home:FC<IHomeProps> = () => {
         </Swiper> */}
         <div className={styles.bannerContent}>
           <div className={styles.quotationMark}>“</div>
-            白天积极向上，<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;夜晚灵魂安放
+            白天积极向上<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;夜晚灵魂安放
           <div className={styles.quotationMarkRight}>”</div>
         </div>
       </div>
@@ -90,7 +90,7 @@ const Home:FC<IHomeProps> = () => {
             <button className={styles.btn} onClick={saveImage} style={{ cursor: 'pointer' }}>
               保存图片
             </button>
-          : <span style={{ color: '#666', fontSize: '20px'}}>周日</span>
+          : <span style={{ color: '#666', fontSize: '20px'}}>周{chineseNumber === '零' ? '日' : chineseNumber}</span>
         }
       </div>
       <div className={styles.homeBottom}>
