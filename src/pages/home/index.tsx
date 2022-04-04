@@ -70,9 +70,10 @@ const Home:FC<IHomeProps> = () => {
     downloadImg(dom, fileName, 2);
     await setIsshow(true)
   }
+  console.log('11111')
   return (
     <div className={styles.home} id='domNode'>
-      <div className={styles.engTitle}>Daily Sharing</div>
+      {/* <div className={styles.engTitle}>Daily Sharing</div> */}
       <div className={styles.banner}>
         {/* <Swiper>
           {swiperItems}
