@@ -1,13 +1,15 @@
 import { defineConfig } from 'umi';
+import routes from './src/routes'
 import px2rem from 'postcss-plugin-px2rem'
 
 export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
   },
-  routes: [
-    { path: '/', component: '@/pages/home/index' },
-  ],
+  routes,
+  // routes: [
+  //   { path: '/', component: '@/pages/home/index' },
+  // ],
   alias: {
     assets: '/src/assets'
   },
