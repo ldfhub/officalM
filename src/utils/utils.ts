@@ -44,3 +44,13 @@ export const toChinesNum = (num:any) => {
   }
   return newNum;
 };
+
+/**
+  * 根据路由判断是否要渲染Header组部分
+  * @param {String} linkRouter 需要判断的路由
+*/
+
+export const affirmRouterHeader = (addRouterHeader:string[], router: string) => {
+  return addRouterHeader.indexOf(router) !== -1;
+}
+
