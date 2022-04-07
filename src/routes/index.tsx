@@ -6,20 +6,11 @@ const routes = [
       { path: '/', redirect: '/home' },
       // { path: '/home', redirect: '/home/recommend' },
       {
-        path: '/home',
-        component: '@/pages/home/index',
-        // routes: [
-        //   { path: '/home/recommend', component: '@/pages/home/recommend' },
-        //   { path: '/home/rank', component: '@/pages/home/rankList' },
-        //   { path: '/home/songlist', component: '@/pages/home/songList' },
-        //   { path: '/home/anchor', component: '@/pages/home/anchor' },
-        //   { path: '/home/singer', component: '@/pages/home/singer' },
-        //   { path: '/home/newput', component: '@/pages/home/newPut' },
-        // ],
+        path: '/home', component: '@/pages/home/index',
       },
-      // { path: '/mymusic', component: '@/pages/myMusic/index' },
-      // { path: '/friend', component: '@/pages/friend/index' },
-      // { path: '/shop', component: '@/pages/shop/index' },
+      { path: '/list', component: '@/pages/list/index' },
+      { path: '/upload', component: '@/pages/upload/index' },
+      { path: '/profile', component: '@/pages/profile/index' },
       // { path: '/musician', component: '@/pages/musician/index' },
       // { path: '/downClient', component: '@/pages/downClient/index' },
     ],
@@ -38,6 +29,6 @@ const routes = [
   // {
   //   path: '/detail', component: '@/pages/detail/index'
   // },
-  // { component: '@/pages/notFound' },
+  { component: '@/pages/notFound' },
 ];
 export default routes;

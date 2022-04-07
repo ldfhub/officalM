@@ -1,8 +1,9 @@
 import React, {useState} from 'react'
 import styles from './index.less';
-import imgUrl from '../../assets/home.png';
+import { useHistory } from 'react-router-dom';
 
 const FooterNav = () => {
+  const history = useHistory();
   const nav = [
     {text: '首页', key: 'home', active: true},
     {text: '列表', key: 'list', active: false},
@@ -10,6 +11,7 @@ const FooterNav = () => {
     {text: '我的', key: 'profile', active: false}
   ]
   const [navData, setNavData] = useState(nav);
+  // 点击切换路由
   const clickChangeRouter = (key: string) => {
     return () => {
       const num = navData.findIndex(item => item.key === key);
@@ -18,6 +20,7 @@ const FooterNav = () => {
         navData[num].active = true;
       })
       setNavData([...navData]);
+      history.push(`/${key}`)
     }
   }
   return (
@@ -28,7 +31,7 @@ const FooterNav = () => {
             return (
               <li key={item.key} onClick={clickChangeRouter(item.key)}>
                 <img src={require(`../../assets/${item.active ? item.key + '-active' : item.key}.png`)} />
-                <span>{item.text}</span>
+                <span className={item.active ? styles.activeText : ''}>{item.text}</span>
               </li>
             )
           })
