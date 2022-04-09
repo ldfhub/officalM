@@ -1,14 +1,24 @@
-.listWrapper {
-  white-space: nowrap;
-  overflow: hidden;
-  .content {
-    display: flex;
-    li {
-      width: 70px;
-      height: 40px;
-      font-size: 18px;
-      text-align: center;
-      list-style: none;
+.list {
+  padding: 0px 20px;
+  .listWrapper {
+    white-space: nowrap;
+    overflow: hidden;
+    .content {
+      display: flex;
+      li {
+        width: 64px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 18px;
+        text-align: center;
+        list-style: none;
+      }
+      .active {
+        border-bottom: 1px solid #cd5341;
+        font-size: 20px;
+        font-weight: 500;
+        color: #cd5341;
+      }
     }
   }
 }

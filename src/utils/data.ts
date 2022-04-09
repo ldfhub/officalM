@@ -3,7 +3,7 @@
 export const listNav = [
   {
     type: '全部',
-    id: 'All',
+    id: 'ALL',
   },
   {
     type: '笑话',

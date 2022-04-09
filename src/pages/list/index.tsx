@@ -6,6 +6,7 @@ import { betterScroll } from '@/utils/utils';
 
 export default function List() {
   const [bs, setBs] = useState<any>();
+  const [listNavActive, setListNavActive] = useState('ALL');
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
     if (wrapperRef.current) {
@@ -19,16 +20,29 @@ export default function List() {
       setBs(bScroll);
     }
   }, []);
+  const activeLiType = (item: any) => {
+    setListNavActive(item.id);
+  };
   return (
-    <div className={styles.listWrapper} ref={wrapperRef} id="wrapper">
-      <ul
-        className={styles.content}
-        style={{ width: `${70 * listNav.length}px` }}
-      >
-        {listNav.map((item, index) => {
-          return <li key={item.id}>{item.type}</li>;
-        })}
-      </ul>
+    <div className={styles.list}>
+      <div className={styles.listWrapper} ref={wrapperRef} id="wrapper">
+        <ul
+          className={styles.content}
+          style={{ width: `${64 * listNav.length}px` }}
+        >
+          {listNav.map((item, index) => {
+            return (
+              <li
+                onClick={() => activeLiType(item)}
+                className={listNavActive === item.id ? styles.active : ''}
+                key={item.id}
+              >
+                {item.type}
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </div>
   );
 }

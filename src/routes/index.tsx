@@ -1,4 +1,5 @@
 const routes = [
+  { path: '/login', component: '@/pages/login/index' },
   {
     path: '/',
     component: '@/layouts/index',
@@ -10,7 +11,6 @@ const routes = [
       { path: '/profile', component: '@/pages/profile/index', title: '我的' },
     ],
   },
-  // { path: '/login', component: '@/pages/login/index' },
   // {
   //   path: '/user',
   //   component: '@/layouts/index',
