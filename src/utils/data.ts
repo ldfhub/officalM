@@ -1,19 +1,32 @@
 // 定义的静态数据
-export const bannerData = [
+// list页面的nav数据
+export const listNav = [
   {
-    imgUrl: 'assets/情话.png',
-    id: '情话'
+    type: '全部',
+    id: 'All',
   },
   {
-    imgUrl: 'assets/笑话.png',
-    id: '笑话'
+    type: '笑话',
+    id: 'JOKE',
   },
   {
-    imgUrl: 'assets/热评论.png',
-    id: '热评'
+    type: '情话',
+    id: 'LOVEWORDS',
   },
   {
-    imgUrl: 'assets/励志.png',
-    id: '励志'
-  }
-]
+    type: '热评',
+    id: 'HOTWORDS',
+  },
+  {
+    type: '励志',
+    id: 'WISDOM',
+  },
+  {
+    type: '热点',
+    id: 'HOTTOPIC',
+  },
+  {
+    type: '书摘',
+    id: 'EXCERPT',
+  },
+];
