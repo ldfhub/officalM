@@ -1,28 +1,26 @@
 import React from 'react';
 import styles from './index.less';
 import { Form, Input, Button } from 'antd-mobile';
-import { VerifyPassword, VerifyUserName } from '@/utils/utils';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { VerifyPassword, VerifyUserName } from '@/utils/utils';
 
-export default function Login() {
+export default function Register() {
   const FormItem = Form.Item;
   const [form] = Form.useForm();
   const history = useHistory();
+  const dispatch = useDispatch();
   const onSubmit = () => {
     const res = form.validateFields();
-    console.log(res);
-    // const values = form.getFieldsValue();
-    // console.log(values);
-    // console.log('111')
+    const fieldValue = form.getFieldsValue();
+    dispatch({
+      type: 'register/getRegisterInfo',
+      payload: fieldValue,
+    });
   };
-  const onValuesChange = (values, allValues) => {
-    console.log(values, allValues);
-  };
-
-  // 跳转注册的页面
-  const skipRegister = () => {
-    history.push('/register');
-  };
+  // const onValuesChange = (values, allValues) => {
+  //   console.log(values, allValues);
+  // };
   // 校验密码
   const checkPassword = (_: any, value: string) => {
     if (value) {
@@ -35,6 +33,10 @@ export default function Login() {
     } else {
       return Promise.reject(new Error('密码不能为空!'));
     }
+  };
+  // 返回路由
+  const backRouter = () => {
+    history.goBack();
   };
   // 校验用户名
   const checkUserName = (_: any, value: string) => {
@@ -50,15 +52,15 @@ export default function Login() {
     }
   };
   return (
-    <div className={styles.login}>
+    <div className={styles.register}>
       <div className={styles.headerBack}>
-        <div className={styles.BackIcon} />
+        <div className={styles.BackIcon} onClick={backRouter} />
       </div>
-      <div className={styles.login_content}>
+      <div className={styles.register_content}>
         <Form
           layout="horizontal"
           form={form}
-          onValuesChange={onValuesChange}
+          // onValuesChange={onValuesChange}
           footer={
             <Button
               block
@@ -67,7 +69,7 @@ export default function Login() {
               color="primary"
               size="large"
             >
-              登录
+              注册
             </Button>
           }
         >
@@ -94,9 +96,6 @@ export default function Login() {
             />
           </FormItem>
         </Form>
-        <div className="registerBtn">
-          <span onClick={skipRegister}>注册</span>
-        </div>
       </div>
     </div>
   );

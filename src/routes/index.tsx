@@ -1,5 +1,6 @@
 const routes = [
   { path: '/login', component: '@/pages/login/index' },
+  { path: '/register', component: '@/pages/register/index' },
   {
     path: '/',
     component: '@/layouts/index',
