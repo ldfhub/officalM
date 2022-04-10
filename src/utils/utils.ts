@@ -91,5 +91,23 @@ export const affirmRouterHeader = (
  */
 export const betterScroll = (dom: ElementParam, betterScrollParams: any) => {
   return new BScroll(dom, betterScrollParams);
-  // return scroll;
+};
+
+/**
+ * 正则校验密码
+ * @param {string} value 密码
+ */
+export const VerifyPassword = (value: string) => {
+  const res = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,16}$/.test(value);
+  return res;
+};
+
+/**
+ * 正则校验用户名
+ * @param {string} value 用户名
+ */
+export const VerifyUserName = (value: string) => {
+  // 字母开头，5-12位数字字母
+  const res = /^[a-zA-Z][-_a-zA-Z0-9]{5,11}$/.test(value);
+  return res;
 };
