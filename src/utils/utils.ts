@@ -2,6 +2,8 @@ type ElementParam = any;
 
 import html2canvas from 'html2canvas';
 import BScroll from 'better-scroll';
+import md5 from 'js-md5';
+
 // 截图，保存图片
 export const downloadImg = (
   dom: any,
@@ -110,4 +112,12 @@ export const VerifyUserName = (value: string) => {
   // 字母开头，5-12位数字字母
   const res = /^[a-zA-Z][-_a-zA-Z0-9]{5,11}$/.test(value);
   return res;
+};
+
+/**
+ * md5加密
+ * @param {string} value 加密字符串
+ */
+export const encryptMd5 = (value: string) => {
+  return md5(value);
 };

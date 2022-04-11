@@ -27,6 +27,7 @@
     "dayjs": "^1.11.0",
     "html2canvas": "^1.4.1",
     "js-cookie": "^3.0.1",
+    "js-md5": "^0.7.3",
     "lib-flexible": "^0.3.2",
     "node-sass": "^7.0.1",
     "postcss-plugin-px2rem": "^0.8.1",

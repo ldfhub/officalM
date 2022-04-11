@@ -3,17 +3,18 @@ import styles from './index.less';
 import { Form, Input, Button } from 'antd-mobile';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { VerifyPassword, VerifyUserName } from '@/utils/utils';
+import { VerifyPassword, VerifyUserName, encryptMd5 } from '@/utils/utils';
 
 export default function Register() {
   const FormItem = Form.Item;
   const [form] = Form.useForm();
   const history = useHistory();
   const dispatch = useDispatch();
-  const onSubmit = () => {
+  const onSubmit = async () => {
     const res = form.validateFields();
     const fieldValue = form.getFieldsValue();
-    dispatch({
+    fieldValue.password = encryptMd5(fieldValue.password);
+    await dispatch({
       type: 'register/getRegisterInfo',
       payload: fieldValue,
     });
