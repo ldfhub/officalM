@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './index.less';
-import { Form, Input, Button } from 'antd-mobile';
+import { Form, Input, Button, Toast } from 'antd-mobile';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { VerifyPassword, VerifyUserName, encryptMd5 } from '@/utils/utils';
@@ -11,13 +11,25 @@ export default function Register() {
   const history = useHistory();
   const dispatch = useDispatch();
   const onSubmit = async () => {
-    const res = form.validateFields();
-    const fieldValue = form.getFieldsValue();
-    fieldValue.password = encryptMd5(fieldValue.password);
-    await dispatch({
-      type: 'register/getRegisterInfo',
-      payload: fieldValue,
-    });
+    const promise = form.validateFields();
+    promise
+      .then(async (res) => {
+        const fieldValue = form.getFieldsValue();
+        fieldValue.password = encryptMd5(fieldValue.password);
+        const res1: any = await dispatch({
+          type: 'register/getRegisterInfo',
+          payload: fieldValue,
+        });
+        if (res1.data.msg === 'OK') {
+          Toast.show({
+            icon: 'success',
+            content: '注册成功',
+          });
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   // const onValuesChange = (values, allValues) => {
   //   console.log(values, allValues);
