@@ -3,6 +3,18 @@ type ElementParam = any;
 import html2canvas from 'html2canvas';
 import BScroll from 'better-scroll';
 import md5 from 'js-md5';
+import jsCookie from 'js-cookie';
+
+/**
+ * 存储用户登录信息
+ * @param {String} num 需要转化的数字
+ */
+const USERNAME = 'userName';
+const ACCESS_TOKEN = 'access_token';
+export const saveUserInfo = (token: string, userName: string) => {
+  jsCookie.set(USERNAME, userName);
+  jsCookie.set(ACCESS_TOKEN, token, { expires: 1 });
+};
 
 // 截图，保存图片
 export const downloadImg = (

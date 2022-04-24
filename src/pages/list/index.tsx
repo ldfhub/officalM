@@ -3,6 +3,7 @@ import { listNav } from '@/utils/data';
 import BScroll from 'better-scroll';
 import styles from './index.less';
 import { betterScroll } from '@/utils/utils';
+import CustomList from './components/customList';
 
 export default function List() {
   const [bs, setBs] = useState<any>();
@@ -43,6 +44,7 @@ export default function List() {
           })}
         </ul>
       </div>
+      <CustomList info={{}} />
     </div>
   );
 }

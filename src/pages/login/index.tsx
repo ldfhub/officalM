@@ -1,19 +1,38 @@
 import React from 'react';
 import styles from './index.less';
-import { Form, Input, Button } from 'antd-mobile';
-import { VerifyPassword, VerifyUserName } from '@/utils/utils';
+import { Form, Input, Button, Toast } from 'antd-mobile';
+import { VerifyPassword, VerifyUserName, saveUserInfo } from '@/utils/utils';
 import { useHistory } from 'react-router-dom';
+import { encryptMd5 } from '@/utils/utils';
+import { useDispatch } from 'react-redux';
 
 export default function Login() {
   const FormItem = Form.Item;
   const [form] = Form.useForm();
   const history = useHistory();
+  const dispatch = useDispatch();
   const onSubmit = () => {
-    const res = form.validateFields();
-    console.log(res);
-    // const values = form.getFieldsValue();
-    // console.log(values);
-    // console.log('111')
+    const promise = form.validateFields();
+    promise
+      .then(async (res) => {
+        const fieldValue = form.getFieldsValue();
+        fieldValue.password = encryptMd5(fieldValue.password);
+        const res1: any = await dispatch({
+          type: 'login/getLoginInfo',
+          payload: fieldValue,
+        });
+        if (res1.data.msg === '登陆成功') {
+          console.log('99999999999');
+          saveUserInfo(res1.data.token, res1.data.userName);
+          Toast.show({
+            icon: 'success',
+            content: '登录成功',
+          });
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   const onValuesChange = (values, allValues) => {
     console.log(values, allValues);
