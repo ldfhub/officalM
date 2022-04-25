@@ -68,9 +68,12 @@ export default function Login() {
       return Promise.reject(new Error('密码不能为空!'));
     }
   };
+  const backRouter = () => {
+    history.goBack();
+  };
   return (
     <div className={styles.login}>
-      <div className={styles.headerBack}>
+      <div className={styles.headerBack} onClick={backRouter}>
         <div className={styles.BackIcon} />
       </div>
       <div className={styles.login_content}>
