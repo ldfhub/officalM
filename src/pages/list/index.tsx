@@ -1,13 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { listNav } from '@/utils/data';
-import BScroll from 'better-scroll';
 import styles from './index.less';
 import { betterScroll } from '@/utils/utils';
 import CustomList from './components/customList';
+import { RootState } from '../../models/storeState';
+import { useDispatch } from 'react-redux';
 
 export default function List() {
   const [bs, setBs] = useState<any>();
   const [listNavActive, setListNavActive] = useState('ALL');
+  const dispatch = useDispatch();
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
     if (wrapperRef.current) {
@@ -24,6 +26,14 @@ export default function List() {
   const activeLiType = (item: any) => {
     setListNavActive(item.id);
   };
+
+  // const getList = () => {
+  //   dispatch({
+  //     type: 'list/getList',
+  //     payload: []
+  //   })
+  // }
+
   return (
     <div className={styles.list}>
       <div className={styles.listWrapper} ref={wrapperRef} id="wrapper">

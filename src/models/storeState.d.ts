@@ -1,5 +1,7 @@
-import { homeState } from './homeModel'
+import { homeState } from './homeModel';
+import { listState } from './listModel';
 
 export interface RootState {
-  home: homeState
+  home: homeState;
+  list: listState;
 }
