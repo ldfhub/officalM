@@ -20,7 +20,7 @@ const FooterNav = () => {
   const pathName: string = history.location.pathname;
   const initRouter = () => {
     const num = navData.findIndex((item) => '/' + item.key === pathName);
-    navData.forEach((item, index) => {
+    navData?.forEach((item, index) => {
       item.active = false;
       navData[num].active = true;
     });
