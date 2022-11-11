@@ -12,10 +12,11 @@ export default function index(props: any) {
   );
   // console.log(props)
   // console.log(titleObj)
+  const contentHeight = { height: 'calc(100% - 50px)' };
   return (
     <div style={{ height: '100%' }}>
       {flag && <Header title={titleObj[0].title} />}
-      {props.children}
+      <div style={contentHeight}>{props.children}</div>
       <FooterNav />
     </div>
   );

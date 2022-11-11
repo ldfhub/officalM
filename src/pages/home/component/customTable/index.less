@@ -1,14 +1,18 @@
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 .customTable {
   display: flex;
   width: 100%;
+  flex: 1;
   .contentInfo {
     padding: 20px 20px 0px 20px;
     font-size: 28px;
-    height: 420px;
     width: 100%;
     box-shadow: 0px 15px 22px 0px rgba(205, 205, 205, 0.61);
     border-radius: 20px;
@@ -20,7 +24,7 @@
       // font-size: 22px;
       font-family: SourceHanSerifCN-SemiBold, SourceHanSerifCN;
       font-weight: 500;
-      color: #FFFFFF;
+      color: #ffffff;
       text-shadow: 0px 0px 5px #000;
       // display: -webkit-box;
       // word-break: break-all;
@@ -45,7 +49,7 @@
         line-height: 46px;
         width: 120px;
         height: 46px;
-        background: #FFFFFF;
+        background: #ffffff;
         border-radius: 0px 27px 27px 27px;
         font-size: 20px;
         font-family: PingFangSC-Medium, PingFang SC;
@@ -68,7 +72,7 @@
       .btnInfo_r {
         display: flex;
         align-items: center;
-        span{
+        span {
           font-size: 18px;
           color: #fff;
         }

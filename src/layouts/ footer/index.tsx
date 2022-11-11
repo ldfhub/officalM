@@ -20,11 +20,14 @@ const FooterNav = () => {
   const pathName: string = history.location.pathname;
   const initRouter = () => {
     const num = navData.findIndex((item) => '/' + item.key === pathName);
-    navData?.forEach((item, index) => {
-      item.active = false;
-      navData[num].active = true;
-    });
-    setNavData([...navData]);
+    console.log(num);
+    if (num !== -1) {
+      navData?.forEach((item, index) => {
+        item.active = false;
+        navData[num].active = true;
+      });
+      setNavData([...navData]);
+    }
   };
   // 点击切换路由
   const clickChangeRouter = (key: string) => {
