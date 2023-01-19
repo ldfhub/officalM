@@ -8,5 +8,5 @@ declare module '*.svg' {
   const url: string;
   export default url;
 }
-declare module 'postcss-plugin-px2rem';
+declare module 'postcss-px-to-viewport';
 declare module 'js-md5';

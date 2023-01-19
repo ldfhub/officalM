@@ -1,27 +1,31 @@
 import { defineConfig } from 'umi';
-import routes from './src/routes'
-import px2rem from 'postcss-plugin-px2rem'
+import routes from './src/routes';
+import postcssPx2ViewPort from 'postcss-px-to-viewport';
 
 export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
   },
   routes,
-  // routes: [
-  //   { path: '/', component: '@/pages/home/index' },
-  // ],
   alias: {
-    assets: '/src/assets'
+    assets: '/src/assets',
   },
   fastRefresh: {},
   extraPostCSSPlugins: [
-    // px2rem({
-    //   rootValue: 100, //开启hd后需要换算：rootValue=designWidth*100/750,此处设计稿为1920，所以1920*100/750=256
-    //   propBlackList: ['border','border-top','border-left','border-right','border-bottom','border-radius','font-size'],//这些属性不需要转换
-    //   selectorBlackList: ['t_npx']//以包含t_npx的class不需要转换
-    // })
+    postcssPx2ViewPort({
+      unitToConvert: 'px', // 要转化的单位
+      viewportWidth: 375, // UI设计稿的宽度
+      propList: ['*'], // 指定转换的css属性的单位，*代表全部css属性的单位都进行转换
+      unitPrecision: 6, // 转换后的精度，即小数点位数
+      viewportUnit: 'vw', // 指定需要转换成的视窗单位，默认vw
+      fontViewportUnit: 'vw', // 指定字体需要转换成的视窗单位，默认vw
+      selectorBlackList: ['#root'],
+      minPixelValue: 1, // 默认值1，小于或等于1px则不进行转换
+      mediaQuery: false, // 是否在媒体查询的css代码中也进行转换，默认false
+      replace: true, // 是否转换后直接更换属性值
+    }),
   ],
+  antdMobile: {},
   dva: {},
-  antd: {},
-  title: '山'
+  title: '山',
 });
